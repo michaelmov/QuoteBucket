@@ -1,0 +1,12 @@
+<ul ng-cloak>
+    <li ng-repeat="quote in quotes">
+        {{ quote.text }} - {{ quote.author }}
+    </li>
+</ul>
+<h3>Add Quote</h3>
+<form action="/api/quotes/create" method="post">
+    Text: <input type="text" name="text"/>
+    Author: <input type="text" name="author"/>
+    Source: <input type="text" name="source"/>
+    <button class="btn btn-primary" type="submit">Save Quote</button>
+</form>

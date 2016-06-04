@@ -3,6 +3,7 @@ var app = express();
 var router = express.Router();
 var mongoose = require('mongoose');
 var db = require('./config/db');
+var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var path = require('path');
@@ -22,6 +23,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, '../client/views'));
 app.set('view engine', 'html');
 
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

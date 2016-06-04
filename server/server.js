@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var path = require('path');
 var session = require('express-session');
+var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
 require('./config/passport')(passport);
@@ -16,12 +17,16 @@ var quotes = require('./routes/quotes');
 
 var port = process.env.PORT || 3000;
 
-// app.set('view engine', 'ejs');
-// app.engine('.html', require('ejs').renderFile);
+// View engine setup
+app.engine('html', require('ejs').renderFile);
+app.set('views', path.join(__dirname, '../client/views'));
+app.set('view engine', 'html');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,  '../client')));
+
 
 
 // Connect to DB
@@ -39,27 +44,29 @@ app.use(session({
         collection: 'sessions'
     })
 }));
-
-
-
 app.use(passport.initialize());
 app.use(passport.session());
-
-
+app.use(flash());
 
 // Load API routes
 app.use('/api/auth', auth);
 app.use('/api/quotes', quotes);
 
+
+// General routes
 app.get('/register', function (req, res) {
-    res.sendFile(path.join(__dirname, '../client/views', 'register.html'));
+    // res.sendFile(path.join(__dirname, '../client/views', 'register.html'));
+    res.render('register');
 });
 
 app.get('/login', function (req, res) {
     if(req.isAuthenticated()) {
         res.redirect('/quotes');
     } else {
-        res.sendFile(path.join(__dirname, '../client/views', 'login.html'));
+        // res.sendFile(path.join(__dirname, '../client/views', 'login.html'));
+        res.render('login', {
+            message: req.flash('message')
+        });
     }
 
 });

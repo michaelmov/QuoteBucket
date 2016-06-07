@@ -57,7 +57,6 @@ app.use('/api/quotes', quotes);
 
 // General routes
 app.get('/register', function (req, res) {
-    // res.sendFile(path.join(__dirname, '../client/views', 'register.html'));
     res.render('register');
 });
 
@@ -65,7 +64,6 @@ app.get('/login', function (req, res) {
     if(req.isAuthenticated()) {
         res.redirect('/quotes');
     } else {
-        // res.sendFile(path.join(__dirname, '../client/views', 'login.html'));
         res.render('login', {
             message: req.flash('message')
         });
@@ -75,7 +73,7 @@ app.get('/login', function (req, res) {
 
 app.get('/quotes', function (req, res) {
     if(req.isAuthenticated()) {
-        res.sendFile(path.join(__dirname, '../client/views', 'quotes.html'));
+        res.render('quotes');
     } else {
         res.redirect('/login');
     }
@@ -84,7 +82,7 @@ app.get('/quotes', function (req, res) {
 
 
 app.get('/', function (req, res) {
-   res.sendFile(path.join(__dirname , '../client/views', 'index.html'));
+    res.render('index');
 });
 
 

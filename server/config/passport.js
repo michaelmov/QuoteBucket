@@ -7,7 +7,7 @@ module.exports = function (passport) {
         passReqToCallback : true
     },
         function(req, username, password, done) {
-            User.findOne({ username: username}, function(err, user) {
+            User.findOne({ username: username }, function(err, user) {
                 if(err) {
                     return done(err);
                 }
@@ -17,7 +17,6 @@ module.exports = function (passport) {
                 if (!user.validatePassword(password)) {
                     return done(null, false, req.flash('message', 'Incorrect username or password'));
                 }
-
                 return done(null, user);
             });
         }

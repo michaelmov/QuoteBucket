@@ -18,7 +18,9 @@ module.exports = function (passport) {
         if(req.isAuthenticated()){
             return next();
         }
-        res.redirect('/');
+        res.status(401).send({
+            message: 'Not authorized'
+        })
     }
 
 

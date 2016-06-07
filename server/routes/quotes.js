@@ -12,10 +12,13 @@ router.get('/', function(req, res, next) {
                     status: 500
                 });
             }
-            res.json(quotes);
+            res.send(quotes);
         });
     } else {
-        res.redirect('/');
+        res.status(401).send({
+            message: 'Not authorized'
+        })
+
     }
 
 
@@ -34,7 +37,7 @@ router.post('/create', function(req, res, next) {
                 message: 'Failed to save to db',
                 status: 500
             });
-        }else{
+        } else{
             res.send('Quote saved!');
         }
     });

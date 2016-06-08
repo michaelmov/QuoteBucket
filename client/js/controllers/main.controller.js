@@ -6,8 +6,9 @@ app.controller('mainController',['$scope', '$http', '$sce', 'QuoteService', func
         .then(function(quotes) {
             $scope.quotes = quotes;
         });
-    // $scope.popoverData = {
-    //     templateUrl: '../../views/partials/popover.html'
-    // };
+      
+    $scope.popoverData = {
+        templateUrl: '../../views/templates/popover.html'
+    };
         // $scope.htmlPopover = $sce.trustAsHtml('<b style="color: red">I can</b> have <div class="label label-success">HTML</div> content');
 }]);

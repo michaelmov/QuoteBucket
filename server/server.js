@@ -20,8 +20,8 @@ var port = process.env.PORT || 3000;
 
 // View engine setup
 app.engine('html', require('ejs').renderFile);
-app.set('views', path.join(__dirname, '../client/views'));
 app.set('view engine', 'html');
+app.set('views', path.join(__dirname, '../client/views'));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -34,8 +34,10 @@ app.use(express.static(path.join(__dirname,  '../client')));
 // Connect to DB
 mongoose.connect(db.url);
 
+
+// Session setup
 app.use(session({
-    secret: 'kitten paws',
+    secret: process.env.SESSION_SECRET || 'kitten paws',
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
     },
@@ -46,6 +48,8 @@ app.use(session({
         collection: 'sessions'
     })
 }));
+
+// Passport setup
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -55,7 +59,7 @@ app.use('/api/auth', auth);
 app.use('/api/quotes', quotes);
 
 
-// General routes
+// General page routes
 app.get('/register', function (req, res) {
     res.render('register');
 });
@@ -92,7 +96,7 @@ app.listen(port, function () {
 });
 
 
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -100,9 +104,9 @@ app.use(function(req, res, next) {
 });
 
 
-// error handlers
+// Error handlers
 
-// development error handler
+// Development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
@@ -114,7 +118,7 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
+// Production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);

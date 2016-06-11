@@ -1,6 +1,41 @@
 html, body {
   height: 100%;
-  background: #e0e0e0;
+  background: #F3F3F3;
+}
+
+body {
+  padding-top: 70px;
+}
+
+.navbar {
+  height: 70px;
+  box-shadow: 0 1px 4px #C6C6C6;
+}
+.navbar .container {
+  max-width: 1200px;
+}
+.navbar .btn {
+  height: 36px;
+  margin: 18px 10px;
+}
+.navbar .navbar-link {
+  margin: 25px 10px;
+}
+
+.navbar-default {
+  background: #ffffff;
+}
+
+.navbar-brand {
+  padding: 25px 15px;
+}
+
+.btn {
+  height: 45px;
+}
+
+.form-control {
+  height: 45px;
 }
 
 .login-page {

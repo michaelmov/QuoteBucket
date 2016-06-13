@@ -7,6 +7,119 @@ body {
   padding-top: 70px;
 }
 
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #747474;
+}
+
+html {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+h6 {
+  font-size: 0.86rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+a {
+  color: #FF7E82;
+}
+a:hover {
+  color: #ff989b !important;
+  text-decoration: none;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "icons";
+  src: url("fonts/icons.eot?e67d96f26f3b2d9b1f68fa20a9f81c25");
+  src: url("fonts/icons.eot?#iefix") format("embedded-opentype"), url("fonts/icons.woff?e67d96f26f3b2d9b1f68fa20a9f81c25") format("woff"), url("fonts/icons.ttf?e67d96f26f3b2d9b1f68fa20a9f81c25") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.icon {
+  font-family: "icons";
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-logo:before {
+  content: "\f101";
+}
+
+.btn {
+  height: 45px;
+  border-radius: 2px;
+}
+
+.btn-primary {
+  background: #FF7E82;
+  border-color: #FF7E82;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:target {
+  background: #ff989b !important;
+  border-color: #ff989b !important;
+}
+
+.btn-secondary {
+  background: none;
+  border-color: #FF7E82;
+}
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary:target {
+  border-color: #ff989b !important;
+  box-shadow: none;
+}
+
+.form-control {
+  height: 45px;
+}
+
+.form-control {
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+}
+
 .navbar {
   height: 70px;
   box-shadow: 0 1px 4px #C6C6C6;
@@ -18,6 +131,10 @@ body {
   height: 36px;
   margin: 18px 10px;
 }
+.navbar .btn-secondary {
+  padding-left: 26px;
+  padding-right: 26px;
+}
 .navbar .navbar-link {
   margin: 25px 10px;
 }
@@ -27,26 +144,37 @@ body {
 }
 
 .navbar-brand {
-  padding: 25px 15px;
+  padding: 2px 15px;
+  display: inline-block;
+}
+.navbar-brand .i-logo {
+  font-size: 3rem;
+  margin: 10px 0;
+  padding: 0;
+  display: inline-block;
+}
+.navbar-brand h4 {
+  display: inline-block;
 }
 
-.btn {
-  height: 45px;
+.i-logo {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  overflow: visible;
+  display: block;
+  font-size: 100px;
+  color: #FF7E82;
 }
 
-.form-control {
-  height: 45px;
-}
-
-.login-page {
-  padding: 50px;
-  width: 360px;
+.login-form {
+  margin: 30px auto;
+  padding: 40px 33px;
+  width: 385px;
   background: #ffffff;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
 }
-.login-page h1 {
-  text-align: centeR;
-}
-.login-page .btn {
+.login-form .btn {
   width: 100%;
 }
 

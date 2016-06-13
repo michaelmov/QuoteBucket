@@ -1,0 +1,43 @@
+.navbar {
+  height: 70px;
+  box-shadow: 0 1px 4px #C6C6C6 ;
+
+  .container {
+    max-width: 1200px;
+  }
+
+
+  .btn {
+    height: 36px;
+    margin: 18px 10px;
+  }
+
+  .btn-secondary {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  .navbar-link {
+    margin: 25px 10px;
+  }
+}
+
+.navbar-default {
+  background: #ffffff;
+}
+
+.navbar-brand {
+  padding: 2px 15px;
+  display: inline-block;
+
+  .i-logo {
+    font-size: 3rem;
+    margin: 10px 0;
+    padding: 0;
+    display: inline-block;
+  }
+
+  h4 {
+    display: inline-block;
+  }
+}

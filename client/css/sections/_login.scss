@@ -1,0 +1,22 @@
+.i-logo {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  overflow: visible;
+  display: block;
+  font-size: 100px;
+  color: $primary-color;
+}
+
+.login-form {
+  margin: 30px auto;
+  padding: 40px 33px;
+  width: 385px;
+  background: #ffffff;
+  border: 1px solid $grey-3;
+  border-radius: 2px;
+
+
+  .btn {
+    width: 100%;
+  }
+}

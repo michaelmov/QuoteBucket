@@ -1,56 +1,14 @@
-html, body {
-  height: 100%;
-  background: #F3F3F3;
-}
-
-body {
-  padding-top: 70px;
-}
-
-.navbar {
-  height: 70px;
-  box-shadow: 0 1px 4px #C6C6C6 ;
-
-  .container {
-    max-width: 1200px;
-  }
-
-  .btn {
-    height: 36px;
-    margin: 18px 10px;
-  }
-
-  .navbar-link {
-    margin: 25px 10px;
-  }
-}
-
-.navbar-default {
-  background: #ffffff;
-}
-.navbar-brand {
-  padding: 25px 15px;
-}
-
-.btn {
-  height: 45px;
-}
-
-.form-control {
-  height: 45px;
-}
-
-.login-page {
-  padding: 50px;
-  width: 360px;
-  background: #ffffff;
+// Base
+@import 'base/variables',
+'base/layout',
+'base/typography',
+'base/icons',
+'base/buttons',
+'base/forms';
 
 
-  h1 {
-    text-align: centeR;
-  }
 
-  .btn {
-    width: 100%;
-  }
-}
+// Sections
+@import 'sections/navbar',
+'sections/login',
+'sections/register';

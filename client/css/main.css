@@ -91,6 +91,7 @@ label {
 .btn {
   height: 45px;
   border-radius: 2px;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-primary {
@@ -107,6 +108,8 @@ label {
   border-color: #FF7E82;
 }
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary:target {
+  color: #ffffff !important;
+  background: #ff989b !important;
   border-color: #ff989b !important;
   box-shadow: none;
 }

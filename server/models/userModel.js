@@ -27,15 +27,13 @@ userSchema.methods.validatePassword = function(password) {
 };
 
 userSchema.methods.generateJwt = function() {
-    var expiration = new Date();
-    expiration.setDate(expiration.getDate() + 30);
-
     return jwt.sign({
         _id: this._id,
         name: this.name,
-        username: this.email,
-        exp: parseInt(expiration.getDate() / 1000)
-    }, process.env.TOKEN_SECRET || 'kitten paws');
+        username: this.username
+    }, process.env.TOKEN_SECRET || 'kitten paws', {
+        expiresIn: "30  days"
+    });
 };
 
 module.exports = mongoose.model('User', userSchema);

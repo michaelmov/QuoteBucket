@@ -4,19 +4,19 @@ var Quote = require('./../models/quoteModel');
 
 
 router.get('/', function(req, res, next) {
-    if(req.isAuthenticated()) {
-        Quote.find({_user: req.user}).exec(function (err, quotes) {
+    if(req.payload._id) {
+        Quote.find({_user: req.payload._id}).exec(function (err, quotes) {
             if(err) {
                 return next({
                     message: 'Failed to query db',
                     status: 500
                 });
             }
-            res.send(quotes);
+            res.json(quotes);
         });
     } else {
-        res.status(401).send({
-            message: 'Not authorized'
+        res.status(401).json({
+            "message": "Not authorized"
         })
 
     }

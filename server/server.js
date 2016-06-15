@@ -25,7 +25,7 @@ app.set('views', path.join(__dirname, '../client/views'));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,  '../client')));
 
@@ -36,57 +36,31 @@ mongoose.connect(db.url);
 
 
 // Session setup
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'kitten paws',
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-    },
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore({
-        mongooseConnection: mongoose.connections[0],
-        collection: 'sessions'
-    })
-}));
+// app.use(session({
+//     secret: process.env.SESSION_SECRET || 'kitten paws',
+//     cookie: {
+//         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+//     },
+//     resave: true,
+//     saveUninitialized: true,
+//     store: new MongoStore({
+//         mongooseConnection: mongoose.connections[0],
+//         collection: 'sessions'
+//     })
+// }));
 
 // Passport setup
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 app.use(flash());
 
 // Load API routes
 app.use('/api/auth', auth);
 app.use('/api/quotes', quotes);
 
-
-// General page routes
-app.get('/register', function (req, res) {
-    res.render('register');
-});
-
-app.get('/login', function (req, res) {
-    if(req.isAuthenticated()) {
-        res.redirect('/quotes');
-    } else {
-        res.render('login', {
-            message: req.flash('message')
-        });
-    }
-
-});
-
-app.get('/quotes', function (req, res) {
-    if(req.isAuthenticated()) {
-        res.render('quotes');
-    } else {
-        res.redirect('/login');
-    }
-    
-});
-
-
-app.get('/', function (req, res) {
-    res.render('index');
+// General routes
+app.get('/*', function (req, res) {
+    res.render('app');
 });
 
 

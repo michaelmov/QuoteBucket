@@ -14,41 +14,61 @@ module.exports = function (passport) {
     }
 
 
-    router.post('/login', passport.authenticate('local', {
-        successRedirect: '/quotes',
-        failureRedirect: '/login',
-        failureFlash: true
-    }));
+    router.post('/login', function(req, res, next) {
+
+        passport.authenticate('local', function (err, user, info) {
+            var token;
+
+            if(err) {
+                return next(err);
+            }
+
+            if(user) {
+                token = user.generateJwt();
+                res.status(200).json({
+                    "token" : token
+                })
+            } else {
+                return next({
+                    message: info,
+                    status: 401
+                });
+            }
+        })(req, res);
+    });
 
 
     router.post('/register', function (req, res, next) {
-        var u = new User();
+        var user = new User();
 
-        u.name = req.body.name;
-        u.username = req.body.username;
-        u.password = u.generateHash(req.body.password);
+        user.name = req.body.name;
+        user.username = req.body.email;
+        user.password = user.generateHash(req.body.password);
 
-        u.save(function(err) {
+        user.save(function(err) {
+            var token = user.generateJwt();
             if (err) {
                 return next({
                     message: 'Couldn\'t register an account',
                     status: 500
                 });
-            }
-            else {
-                res.json({'alert':'Registration success'});
+            } else {
+                res.status(200).json({
+                    "message" : "Registration success",
+                    "token" : token
+                });
             }
         });
     });
 
-    router.get('/user', isAuthenticated, function(req, res){
-        res.send(req.user);
-    });
-
-    router.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/login');
-    });
+    // router.get('/user', isAuthenticated, function(req, res){
+    //     res.send(req.user);
+    // });
+    //
+    // router.get('/logout', function(req, res) {
+    //     req.logout();
+    //     res.redirect('/login');
+    // });
 
     return router;
 };

@@ -1,14 +1,17 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
-var Quote = require('./quoteModel');
+var jwt = require('jsonwebtoken');
 
 var userSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        required: true
     },
     username: {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
     password: {
         type: String
@@ -22,5 +25,20 @@ userSchema.methods.generateHash = function(password) {
 userSchema.methods.validatePassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
+
+userSchema.methods.generateJwt = function() {
+    var expiration = new Date();
+    expiration.setDate(expiration.getDate() + 30);
+
+    return jwt.sign({
+        _id: this._id,
+        name: this.name,
+        username: this.email,
+        exp: parseInt(expiration.getDate() / 1000)
+    }, process.env.TOKEN_SECRET || 'kitten paws');
+};
+
 module.exports = mongoose.model('User', userSchema);
+
+
 

@@ -1,8 +1,8 @@
 'use strict';
 
-app.controller('mainController',['$scope', '$http', '$sce', 'QuoteService', function($scope, $http, $sce, QuoteService) {
+app.controller('mainController',['$scope', '$http', '$sce', 'quoteService', function($scope, $http, $sce, quoteService) {
 
-    QuoteService.getQuotes()
+    quoteService.getQuotes()
         .then(function(quotes) {
             $scope.quotes = quotes;
         });

@@ -6,15 +6,19 @@ var jwt = require('jsonwebtoken');
 var userSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     username: {
         type: String,
         required: true,
+        trim: true,
         unique: true
     },
     password: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
     }
 });
 

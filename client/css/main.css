@@ -169,7 +169,7 @@ label {
   color: #FF7E82;
 }
 
-.login-form {
+.login-form, .register-form {
   margin: 30px auto;
   padding: 40px 33px;
   width: 385px;
@@ -177,7 +177,7 @@ label {
   border: 1px solid #CCCCCC;
   border-radius: 2px;
 }
-.login-form .btn {
+.login-form .btn, .register-form .btn {
   width: 100%;
 }
 

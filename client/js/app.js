@@ -20,7 +20,8 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: 'loginController'
         })
         .when('/register', {
-            templateUrl: 'views/partials/register.html'
+            templateUrl: 'views/partials/register.html',
+            controller: 'registerController'
         })
         .when('/two', {
             templateUrl: 'views/partials/two.html'

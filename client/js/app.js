@@ -33,4 +33,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     $locationProvider.html5Mode(true);
 }]);
 
-app.run()
+app.run(['$rootScope', '$location', 'authService', function($rootScope, $location, authService) {
+    $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
+        if($location.path() === '/' && !authService.isLoggedIn()) {
+            $location.path('/login');
+        }
+    });
+}]);

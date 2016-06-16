@@ -125,7 +125,7 @@ label {
 
 .navbar {
   height: 70px;
-  box-shadow: 0 1px 4px #C6C6C6;
+  box-shadow: 0 1px 4px #CCCCCC;
 }
 .navbar .container {
   max-width: 1200px;
@@ -179,6 +179,29 @@ label {
 }
 .login-form .btn, .register-form .btn {
   width: 100%;
+}
+
+.quotes {
+  width: 100%;
+}
+.quotes .col-md-6 {
+  margin-bottom: 30px;
+}
+.quotes h1 {
+  margin-top: 85px;
+  margin-bottom: 55px;
+}
+.quotes .quote-card {
+  background: #ffffff;
+  height: 300px;
+  width: 100%;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: 0 1px 4px #CCCCCC;
+  transition: all 0.2s ease-in-out;
+}
+.quotes .quote-card:hover {
+  box-shadow: 0 5px 8px #CCCCCC;
 }
 
 /*# sourceMappingURL=main.css.map */

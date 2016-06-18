@@ -12,8 +12,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
     $routeProvider
 
         .when('/', {
-            templateUrl: 'views/partials/main.html',
-            controller: 'mainController'
+            templateUrl: 'views/partials/main.html'
         })
         .when('/login', {
             templateUrl: 'views/partials/login.html',

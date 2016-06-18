@@ -1,6 +1,6 @@
 'use strict';
 
-app.service('authService', ['$http', '$window', function ($http, $window) {
+app.service('authService', ['$http', '$window', '$rootScope', '$timeout', function ($http, $window, $rootScope, $timeout) {
 
     var saveToken = function(token) {
         $window.localStorage['quotebucket-token'] = token;
@@ -41,12 +41,14 @@ app.service('authService', ['$http', '$window', function ($http, $window) {
     var register = function(user) {
         return $http.post('/api/auth/register', user).success(function(data) {
             saveToken(data.token);
+
         });
     };
 
     var login = function (user) {
         return $http.post('/api/auth/login', user).success(function(data) {
             saveToken(data.token);
+            $rootScope.$broadcast('login-done');
         });
     };
 
@@ -64,5 +66,5 @@ app.service('authService', ['$http', '$window', function ($http, $window) {
         login: login,
         logout: logout
     });
-    
+
 }]);

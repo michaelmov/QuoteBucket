@@ -6,3 +6,7 @@ html, body {
 body {
   padding-top: 70px;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}

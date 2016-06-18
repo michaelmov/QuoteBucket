@@ -64,7 +64,5 @@ app.service('authService', ['$http', '$window', function ($http, $window) {
         login: login,
         logout: logout
     });
-
-
-
+    
 }]);

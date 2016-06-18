@@ -7,7 +7,7 @@ var app = angular.module('quoteBucketApp', [
     'ui.bootstrap'
 ]);
 
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
 
     $routeProvider
 
@@ -32,7 +32,29 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
     //Use the HTML5 History API
     $locationProvider.html5Mode(true);
+
+
+    // Intercept requests
+    $httpProvider.interceptors.push(['$q', '$location', '$injector', function ($q, $location, $injector) {
+        return {
+            request: function(config) {
+                var authService = $injector.get('authService')
+                config.headers = config.headers || {};
+                if (authService.isLoggedIn()) {
+                    config.headers.Authorization = 'Bearer ' + authService.getToken();
+                }
+                return config;
+            },
+            response: function(response) {
+                if(response.status === 401 || response.status === 403) {
+                    $location.path('/login');
+                }
+                return response;
+            }
+        };
+    }]);
 }]);
+
 
 app.run(['$rootScope', '$location', 'authService', function($rootScope, $location, authService) {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {

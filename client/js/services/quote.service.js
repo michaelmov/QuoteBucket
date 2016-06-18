@@ -1,13 +1,9 @@
 'use strict';
 
-app.service('quoteService', ['$q', '$timeout', '$http', 'authService', function ($q, $timeout, $http, authService) {
+app.service('quoteService', ['$q', '$timeout', '$http', function ($q, $timeout, $http) {
 
     function getQuotes() {
-        return $http.get('/api/quotes', {
-            headers: {
-                Authorization: 'Bearer '+ authService.getToken()
-            }
-        })
+        return $http.get('/api/quotes')
         .then(function(response) {
             return response.data;
         });

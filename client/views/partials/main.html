@@ -5,19 +5,9 @@
     <div class="quotes">
         <h1>My Quotes</h1>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" ng-repeat="quote in quotes">
                 <div class="quote-card">
-                   <h2>“Done is better than perfect.”</h2>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="quote-card">
-                    <h2>“Done is better than perfect.”</h2>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="quote-card">
-                    <h2>“Done is better than perfect.”</h2>
+                   <h2 data-quote-id="{{ quote._id }}">"{{ quote.text }}"</h2>
                 </div>
             </div>
         </div>

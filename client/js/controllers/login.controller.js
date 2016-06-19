@@ -10,11 +10,11 @@ app.controller('loginController', ['$scope', '$location', 'authService', functio
     
     $scope.authenticate = function () {
         authService.login($scope.credentials)
-            .error(function (err) {
-                $scope.error = err;
-            })
             .then(function() {
                 $location.path('/')
             })
+            .catch(function (err) {
+                $scope.error = err.data.message.message;
+            });
     }
 }]);

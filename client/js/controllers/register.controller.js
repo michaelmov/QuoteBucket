@@ -12,11 +12,11 @@ app.controller('registerController', ['$scope', '$location', 'authService', func
 
     $scope.register = function() {
         authService.register($scope.credentials)
-            .error(function (err) {
-                $scope.error = err.message;
-            })
             .then(function() {
-                $location.path('/')
+                $location.path('/');
+            })
+            .catch(function (err) {
+                $scope.error = err.message;
             });
     };
 }]);

@@ -13,10 +13,20 @@
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <a href="/login" class="navbar-link navbar-right" ng-hide="isLoggedIn">Sign In</a>
-            <a href="/register" class="btn btn-secondary navbar-right" ng-hide="isLoggedIn">Sign Up</a>
-            <a href="#" class="btn btn-secondary navbar-right" ng-show="isLoggedIn" ng-click="logout()">Log Out</a>
-            <a href="#" class="navbar-link navbar-right" ng-show="isLoggedIn">{{ currentUser.name }}</a>
+            <div ng-hide="isLoggedIn">
+                <a href="/login" class="navbar-link navbar-right">Sign In</a>
+                <a href="/register" class="btn btn-secondary navbar-right">Sign Up</a>
+            </div>
+            <div ng-show="isLoggedIn">
+                <a href="#" class="btn btn-secondary navbar-right" ng-click="logout()">Log Out</a>
+                <a href="#" class="navbar-link navbar-right">{{ currentUser.name }}</a>
+                <a href="#" class="navbar-right"
+                   uib-popover-template="'views/templates/popover.template.html'"
+                   popover-placement="bottom"
+                   popover-append-to-body="true"
+                   popover-is-open="{{ popover.isOpen }}"><i class="fa fa-plus fa-2x"></i></a>
+            </div>
+
         </div>
     </div>
 </nav>

@@ -106,6 +106,9 @@ label {
   background: #ff989b !important;
   border-color: #ff989b !important;
 }
+.btn-primary .fa {
+  color: #ffffff;
+}
 
 .btn-secondary {
   background: none;
@@ -145,6 +148,14 @@ label {
 .navbar .navbar-link {
   margin: 25px 10px;
 }
+.navbar i {
+  margin-top: 22px;
+  margin-right: 22px;
+  margin-left: 22px;
+}
+.navbar i:hover {
+  color: #FF7E82;
+}
 
 .navbar-default {
   background: #ffffff;
@@ -169,7 +180,7 @@ label {
   margin-bottom: 30px;
   overflow: visible;
   display: block;
-  font-size: 100px;
+  font-size: 70px;
   color: #FF7E82;
 }
 
@@ -206,6 +217,17 @@ label {
 }
 .quotes .quote-card:hover {
   box-shadow: 0 5px 8px #CCCCCC;
+}
+
+.popover {
+  padding: 20px;
+  max-width: 500px;
+}
+.popover .form-control {
+  width: 430px;
+}
+.popover .btn {
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

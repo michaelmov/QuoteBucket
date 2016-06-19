@@ -12,7 +12,8 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
     $routeProvider
 
         .when('/', {
-            templateUrl: 'views/partials/main.html'
+            templateUrl: 'views/partials/main.html',
+            controller: 'mainController'
         })
         .when('/login', {
             templateUrl: 'views/partials/login.html',
@@ -37,10 +38,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
     $httpProvider.interceptors.push(['$q', '$location', '$injector', function ($q, $location, $injector) {
         return {
             request: function(config) {
-                var authService = $injector.get('authService')
+                var authService = $injector.get('authService');
                 config.headers = config.headers || {};
                 if (authService.isLoggedIn()) {
-                    config.headers.Authorization = 'Bearer ' + authService.getToken();
+                    config.headers.Authorization = authService.getToken();
                 }
                 return config;
             },

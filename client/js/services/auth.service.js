@@ -41,7 +41,7 @@ app.service('authService', ['$http', '$window', '$rootScope', '$timeout', functi
     var register = function(user) {
         return $http.post('/api/auth/register', user).success(function(data) {
             saveToken(data.token);
-
+            $rootScope.$broadcast('login-done');
         });
     };
 

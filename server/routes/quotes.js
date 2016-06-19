@@ -1,11 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var Quote = require('./../models/quoteModel');
+var jwt = require('jsonwebtoken');
 
+var verifyToken = function(token) {
+    return jwt.verify(token, process.env.TOKEN_SECRET || 'kitten paws');
+};
 
 router.get('/', function(req, res, next) {
-    if(req.payload._id) {
-        Quote.find({_user: req.payload._id}).exec(function (err, quotes) {
+
+    var token = verifyToken(req.headers.authorization);
+
+    if(token._id) {
+        Quote.find({_user: token._id}).exec(function (err, quotes) {
             if(err) {
                 return next({
                     message: 'Failed to query db',
@@ -17,30 +24,39 @@ router.get('/', function(req, res, next) {
     } else {
         res.status(401).json({
             "message": "Not authorized"
-        })
+        });
 
     }
 
 
 });
 router.post('/create', function(req, res, next) {
-    var q = new Quote();
-    q._user = req.user._id;
-    q.text = req.body.text;
-    q.author = req.body.author;
-    q.source = req.body.source;
+
+    var token = verifyToken(req.headers.authorization);
+
+    if(token._id) {
+        var quote = new Quote();
+        quote._user = token._id;
+        quote.text = req.body.quote;
+        quote.author = req.body.author;
+        quote.source = req.body.source;
 
 
-    q.save(function(err){
-        if (err) {
-            return next({
-                message: 'Failed to save to db',
-                status: 500
-            });
-        } else{
-            res.send('Quote saved!');
-        }
-    });
+        quote.save(function(err){
+            if (err) {
+                return next({
+                    message: 'Failed to save to db',
+                    status: 500
+                });
+            } else {
+                res.status(200).send("Quote saved!")
+            }
+        });
+    } else {
+        res.status(401).json({
+            "message": "Not authorized"
+        });
+    }
 });
 
 router.delete('delete/:id', function(req, res) {

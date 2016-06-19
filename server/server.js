@@ -11,6 +11,7 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
+var jwt = require('express-jwt');
 require('./config/passport')(passport);
 
 var auth = require('./routes/auth')(passport);
@@ -25,7 +26,7 @@ app.set('views', path.join(__dirname, '../client/views'));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,  '../client')));
 
@@ -53,6 +54,9 @@ mongoose.connect(db.url);
 app.use(passport.initialize());
 // app.use(passport.session());
 app.use(flash());
+// app.use(jwt({
+//     secret: process.env.TOKEN_SECRET || 'kitten paws'
+// }));
 
 // Load API routes
 app.use('/api/auth', auth);

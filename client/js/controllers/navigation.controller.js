@@ -11,8 +11,9 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteSer
         source: ''
     };
 
-    $scope.popover = {
-        isOpen: false
+    $scope.newQuotePopover = {
+        isOpen: false,
+        templateUrl: 'views/templates/popover.template.html'
     };
 
 
@@ -22,14 +23,17 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteSer
     });
 
     $scope.addQuote = function() {
-        quoteService.addQuote($scope.newQuote);
-        $scope.newQuote = {
-            quote: '',
-            author: '',
-            source: ''
-        };
+        quoteService.addQuote($scope.newQuote)
+            .then(function() {
+                $scope.newQuote = {
+                    quote: '',
+                    author: '',
+                    source: ''
+                };
 
-        $scope.popover.isOpen = false;
+                $scope.newQuotePopover.isOpen = false;
+
+            });
     };
 
     $scope.logout = function() {

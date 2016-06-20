@@ -1,8 +1,8 @@
 <div class="add-quote">
-    <form ng-submit="addQuote()" role="form">
+    <form ng-submit="addQuote()" role="form" name="newQuoteForm">
         <div class="form-group">
             <label for="quote">Quote</label>
-            <textarea name="quote" rows="5" class="form-control" id="quote" ng-model="newQuote.quote"></textarea>
+            <textarea name="quote" rows="5" class="form-control" id="quote" ng-model="newQuote.quote" required></textarea>
         </div>
         <div class="form-group">
             <label for="author">Author</label>
@@ -12,6 +12,6 @@
             <label for="source">Source URL</label>
             <input name="source" rows="5" class="form-control" id="source" ng-model="newQuote.source" />
         </div>
-        <button class="btn btn-primary" type="submit">Add Quote</button>
+        <button class="btn btn-primary" type="submit" ng-disabled="newQuoteForm.$invalid">Add Quote</button>
     </form>
 </div>

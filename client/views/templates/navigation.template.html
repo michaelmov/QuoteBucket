@@ -19,12 +19,13 @@
             </div>
             <div ng-show="isLoggedIn">
                 <a href="#" class="btn btn-secondary navbar-right" ng-click="logout()">Log Out</a>
-                <a href="#" class="navbar-link navbar-right">{{ currentUser.name }}</a>
+                <a href="#" class="navbar-link navbar-right">{{ currentUser.name }} <i class="fa fa-angle-down"></i></a>
                 <a href="#" class="navbar-right"
-                   uib-popover-template="'views/templates/popover.template.html'"
+                   uib-popover-template="newQuotePopover.templateUrl"
                    popover-placement="bottom"
                    popover-append-to-body="true"
-                   popover-is-open="{{ popover.isOpen }}"><i class="fa fa-plus fa-2x"></i></a>
+                   popover-is-open="newQuotePopover.isOpen"
+                   popover-trigger="outsideClick"><i class="fa fa-plus fa-2x add-button"></i></a>
             </div>
 
         </div>

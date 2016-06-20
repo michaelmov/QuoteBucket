@@ -22,11 +22,17 @@
 
   }
 
-  i {
+  .add-button {
     margin-top: 22px;
     margin-right: 22px;
     margin-left: 22px;
 
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .fa {
     &:hover {
       color: $primary-color;
     }

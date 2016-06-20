@@ -106,6 +106,14 @@ label {
   background: #ff989b !important;
   border-color: #ff989b !important;
 }
+.btn-primary:disabled {
+  background: #CCCCCC;
+  border-color: #CCCCCC;
+}
+.btn-primary:hover:disabled {
+  background: #CCCCCC;
+  border-color: #CCCCCC;
+}
 .btn-primary .fa {
   color: #ffffff;
 }
@@ -148,12 +156,15 @@ label {
 .navbar .navbar-link {
   margin: 25px 10px;
 }
-.navbar i {
+.navbar .add-button {
   margin-top: 22px;
   margin-right: 22px;
   margin-left: 22px;
 }
-.navbar i:hover {
+.navbar .add-button:hover {
+  color: #FF7E82;
+}
+.navbar .fa:hover {
   color: #FF7E82;
 }
 

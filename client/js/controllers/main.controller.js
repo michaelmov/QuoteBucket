@@ -11,6 +11,13 @@ app.controller('mainController',['$scope', '$http', '$sce', 'quoteService', func
                 $scope.quotes = quotes;
             });
     }
+    
+    $scope.deleteQuote = function(quoteId) {
+        return quoteService.deleteQuote(quoteId)
+            .then(function() {
+               getQuotes();
+            });
+    };
 
     getQuotes();
     

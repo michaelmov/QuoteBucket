@@ -17,8 +17,11 @@ app.service('quoteService', ['$q', '$timeout', '$http', '$rootScope', function (
             });
     }
 
-    function deleteQuote() {
-
+    function deleteQuote(quoteId) {
+        return $http.delete('/api/quotes/delete/' + quoteId)
+            .then(function(response) {
+                return response.data;
+            });
     }
 
     function updateQuote() {

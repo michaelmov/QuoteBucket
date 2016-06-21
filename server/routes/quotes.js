@@ -3,10 +3,13 @@ var router = express.Router();
 var Quote = require('./../models/quoteModel');
 var jwt = require('jsonwebtoken');
 
+
+// Verify token with the secret key
 var verifyToken = function(token) {
     return jwt.verify(token, process.env.TOKEN_SECRET || 'kitten paws');
 };
 
+// Get all quotes belonging to the currently logged in user
 router.get('/', function(req, res, next) {
 
     var token = verifyToken(req.headers.authorization);
@@ -30,6 +33,9 @@ router.get('/', function(req, res, next) {
 
 
 });
+
+
+// Add a new quote
 router.post('/create', function(req, res, next) {
 
     var token = verifyToken(req.headers.authorization);
@@ -49,7 +55,7 @@ router.post('/create', function(req, res, next) {
                     status: 500
                 });
             } else {
-                res.status(200).send("Quote saved!")
+                res.status(200).send("Quote saved")
             }
         });
     } else {
@@ -59,18 +65,26 @@ router.post('/create', function(req, res, next) {
     }
 });
 
-router.delete('delete/:id', function(req, res) {
 
-    var id = req.params.id;
-    res.send(id);
+// Delete a quote
+router.delete('/delete/:id', function(req, res) {
 
-   //  Quote.findByIdAndRemove(id, function(err) {
-   //     if(err) {
-   //         res.send(err);
-   //     } else {
-   //         res.send('Quote removed');
-   //     }
-   // })
+    var token = verifyToken(req.headers.authorization);
+
+    if(token._id) {
+        var quoteId = req.params.id;
+
+        Quote.findByIdAndRemove(quoteId, function(err, quote) {
+            if(err) {
+                return next({
+                    message: 'Couldn\'t delete quote',
+                    status: 500
+                });
+            } else {
+                res.status(200).send('Quote removed');
+            }
+        });
+    }
 });
 
 module.exports = router;

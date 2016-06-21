@@ -18,8 +18,15 @@
                 <a href="/register" class="btn btn-secondary navbar-right">Sign Up</a>
             </div>
             <div ng-show="isLoggedIn">
-                <a href="#" class="btn btn-secondary navbar-right" ng-click="logout()">Log Out</a>
-                <a href="#" class="navbar-link navbar-right">{{ currentUser.name }} <i class="fa fa-angle-down"></i></a>
+
+                <a href="#" class="navbar-link navbar-right"
+                   uib-popover-template="userAccountPopover.templateUrl"
+                   popover-placement="bottom"
+                   popover-append-to-body="true"
+                   popover-is-open="userAccountPopover.isOpen"
+                   popover-trigger="outsideClick">{{ currentUser.name }}
+                    <i class="fa fa-angle-down"></i>
+                </a>
                 <a href="#" class="navbar-right"
                    uib-popover-template="newQuotePopover.templateUrl"
                    popover-placement="bottom"

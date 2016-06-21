@@ -255,14 +255,42 @@ label {
 }
 
 .popover {
-  padding: 20px;
+  min-width: 200px;
   max-width: 500px;
+  border-radius: 2px;
 }
-.popover .form-control {
+.popover .popover-content {
+  padding: 0;
+}
+
+.add-quote {
+  margin: 20px;
+}
+.add-quote .form-control {
   width: 430px;
 }
-.popover .btn {
+.add-quote .btn {
   width: 100%;
+}
+
+.user-account-popover {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.user-account-popover ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 5px 0;
+}
+.user-account-popover ul li a {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+.user-account-popover ul li a:hover {
+  color: #ffffff !important;
+  background: #FF7E82;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,21 @@
+.popover {
+  min-width: 200px;
+  max-width: 500px;
+  border-radius: $border-radius;
+
+  .popover-content {
+    padding: 0;
+  }
+}
+
+.add-quote {
+  margin: 20px;
+
+  .form-control {
+    width: 430px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

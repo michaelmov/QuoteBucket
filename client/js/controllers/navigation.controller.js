@@ -13,7 +13,12 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteSer
 
     $scope.newQuotePopover = {
         isOpen: false,
-        templateUrl: 'views/templates/popover.template.html'
+        templateUrl: 'views/templates/newQuotePopover.template.html'
+    };
+
+    $scope.userAccountPopover =  {
+        isOpen: false,
+        templateUrl: 'views/templates/userAccountPopover.template.html'
     };
 
 

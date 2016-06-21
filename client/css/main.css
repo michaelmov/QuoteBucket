@@ -7,10 +7,6 @@ body {
   padding-top: 70px;
 }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important;
-}
-
 * {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #747474;
@@ -107,10 +103,6 @@ label {
   border-color: #ff989b !important;
 }
 .btn-primary:disabled {
-  background: #CCCCCC;
-  border-color: #CCCCCC;
-}
-.btn-primary:hover:disabled {
   background: #CCCCCC;
   border-color: #CCCCCC;
 }

@@ -7,7 +7,13 @@
         <div class="row">
             <div class="col-md-6" ng-repeat="quote in quotes">
                 <div class="quote-card">
-                   <h2 data-quote-id="{{ quote._id }}">"{{ quote.text }}"</h2>
+                   <h2 class="quote-text">“{{ quote.text }}”</h2>
+                    <h4 class="quote-author">{{ quote.author }}</h4>
+                    <a href="{{ quote.source }}" target="_blank" class="quote-source"><h5>{{ quote.source }}</h5></a>
+                    <div class="action-buttons">
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-trash-o" ng-click="deleteQuote(quote._id)"></i>
+                    </div>
                 </div>
             </div>
         </div>

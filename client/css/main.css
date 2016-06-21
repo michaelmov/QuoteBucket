@@ -229,6 +229,38 @@ label {
 .quotes .quote-card:hover {
   box-shadow: 0 5px 8px #CCCCCC;
 }
+.quotes .quote-card .quote-text {
+  margin-top: 0;
+  font-weight: 500;
+}
+.quotes .quote-card .quote-author {
+  position: absolute;
+  bottom: 45px;
+  margin-bottom: 0;
+  color: #CCCCCC;
+}
+.quotes .quote-card .quote-source {
+  position: absolute;
+  bottom: 20px;
+  color: #CCCCCC;
+}
+.quotes .quote-card .quote-source h5 {
+  margin-bottom: 0;
+}
+.quotes .quote-card .action-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 35px;
+}
+.quotes .quote-card .action-buttons .fa {
+  font-size: 1.5rem;
+  margin-left: 8px;
+  color: #CCCCCC;
+}
+.quotes .quote-card .action-buttons .fa:hover {
+  color: #FF7E82;
+  cursor: pointer;
+}
 
 .popover {
   padding: 20px;

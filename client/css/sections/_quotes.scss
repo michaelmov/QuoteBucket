@@ -22,6 +22,45 @@
     &:hover {
       box-shadow: 0 5px 8px $grey-3;
     }
+
+    .quote-text {
+      margin-top: 0;
+      font-weight: 500;
+    }
+
+    .quote-author {
+      position: absolute;
+      bottom: 45px;
+      margin-bottom: 0;
+      color: $grey-3;
+    }
+
+    .quote-source {
+      position: absolute;
+      bottom: 20px;
+      color: $grey-3;
+
+      h5 {
+        margin-bottom: 0;
+      }
+    }
+
+    .action-buttons {
+      position: absolute;
+      bottom: 20px;
+      right: 35px;
+
+      .fa {
+        font-size: 1.5rem;
+        margin-left: 8px;
+        color: $grey-3;
+
+        &:hover {
+          color: $primary-color;
+          cursor: pointer;
+        }
+      }
+    }
   }
 
 

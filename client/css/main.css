@@ -293,4 +293,14 @@ label {
   background: #FF7E82;
 }
 
+.delete-confirmation-popover {
+  text-align: center;
+  margin: 20px;
+  min-width: 220px;
+}
+.delete-confirmation-popover .btn {
+  width: 100px;
+  height: 35px;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -146,19 +146,7 @@ label {
   padding-right: 26px;
 }
 .navbar .navbar-link {
-  display: block;
-  height: 70px;
-  width: auto;
-  text-align: center;
-  padding-top: 25px;
-}
-.navbar .nav-main {
-  width: 70px;
-  margin-right: 20px;
-}
-.navbar .active {
-  color: #FF7E82;
-  border-bottom: 3px solid #FF7E82;
+  margin: 25px 10px;
 }
 .navbar .add-button {
   margin-top: 22px;
@@ -177,9 +165,8 @@ label {
 }
 
 .navbar-brand {
-  padding: 5px 15px;
+  padding: 2px 15px;
   display: inline-block;
-  margin-right: 30px;
 }
 .navbar-brand .i-logo {
   font-size: 3rem;

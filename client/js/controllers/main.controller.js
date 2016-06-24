@@ -2,7 +2,7 @@
 
 app.controller('mainController',['$scope', '$http', '$sce', 'quoteService', function($scope, $http, $sce, quoteService) {
 
-    $scope.pageHeading = 'All Quotes';
+
     $scope.quotes = {};
     $scope.actionButtonsHidden = true;
 

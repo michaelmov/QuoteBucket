@@ -13,7 +13,7 @@ app.controller('registerController', ['$scope', '$location', 'authService', func
     $scope.register = function() {
         authService.register($scope.credentials)
             .then(function() {
-                $location.path('/app');
+                $location.path('/');
             })
             .catch(function (err) {
                 $scope.error = err.message;

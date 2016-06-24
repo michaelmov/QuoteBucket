@@ -11,7 +11,7 @@ app.controller('loginController', ['$scope', '$location', 'authService', functio
     $scope.authenticate = function () {
         authService.login($scope.credentials)
             .then(function() {
-                $location.path('/app')
+                $location.path('/')
             })
             .catch(function (err) {
                 $scope.error = err.data.message.message;

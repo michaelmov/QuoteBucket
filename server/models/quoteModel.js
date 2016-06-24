@@ -14,10 +14,6 @@ var quoteSchema = new Schema({
     author: {
         type: String
     },
-    favorite: {
-        type: Boolean,
-        default: false
-    },
     source: {
         type: String
     }

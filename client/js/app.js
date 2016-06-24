@@ -11,9 +11,13 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
 
     $routeProvider
 
-        .when('/', {
+        .when('/app', {
             templateUrl: 'views/partials/main.html',
             controller: 'mainController'
+        })
+        .when('/app/favorite', {
+            templateUrl: 'views/partials/main.html',
+            controller: 'favoriteController'
         })
         .when('/login', {
             templateUrl: 'views/partials/login.html',
@@ -27,7 +31,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
             templateUrl: 'views/partials/two.html'
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: '/app'
         });
 
     //Use the HTML5 History API
@@ -58,7 +62,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
 
 app.run(['$rootScope', '$location', 'authService', function($rootScope, $location, authService) {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
-        if($location.path() === '/' && !authService.isLoggedIn()) {
+        if($location.path() === '/app' && !authService.isLoggedIn()) {
             $location.path('/login');
         }
     });

@@ -5,6 +5,7 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteSer
     $scope.isLoggedIn = authService.isLoggedIn();
     $scope.currentUser = authService.currentUser();
 
+
     $scope.newQuote = {
         quote: '',
         author: '',
@@ -20,6 +21,10 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteSer
         isOpen: false,
         templateUrl: 'views/templates/userAccountPopover.template.html'
     };
+
+    $scope.getClass = function (path) {
+        return ($location.path() === path) ? 'active' : '';
+    }
 
 
     $scope.$on('login-done', function() {

@@ -63,6 +63,10 @@ app.use('/api/auth', auth);
 app.use('/api/quotes', quotes);
 
 // General routes
+app.get('/', function (req, res) {
+    res.render('index');
+});
+
 app.get('/*', function (req, res) {
     res.render('app');
 });

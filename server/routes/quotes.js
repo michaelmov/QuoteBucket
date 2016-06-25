@@ -87,4 +87,27 @@ router.delete('/delete/:id', function(req, res) {
     }
 });
 
+router.put('/update/:id', function(req, res) {
+    var token = verifyToken(req.headers.authorization);
+    var quoteId = req.params.id;
+
+    if(token._id) {
+        Quote.findByIdAndUpdate(quoteId,
+            {
+                text: req.body.text,
+                author: req.body.author,
+                favorite: req.body.favorite,
+                source: req.body.source
+            },
+            function(err) {
+                if(err) {
+                    return next(err);
+                } else {
+                    res.status(200).send('Quote updated');
+                }
+            });
+    }
+
+});
+
 module.exports = router;

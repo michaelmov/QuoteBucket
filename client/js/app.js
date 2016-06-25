@@ -27,9 +27,6 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
             templateUrl: 'views/partials/register.html',
             controller: 'registerController'
         })
-        .when('/two', {
-            templateUrl: 'views/partials/two.html'
-        })
         .otherwise({
             redirectTo: '/app'
         });

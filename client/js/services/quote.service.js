@@ -24,8 +24,11 @@ app.service('quoteService', ['$q', '$timeout', '$http', '$rootScope', function (
             });
     }
 
-    function updateQuote() {
-
+    function updateQuote(quote) {
+        return $http.put('/api/quotes/update/' + quote._id, quote)
+            .then(function(response) {
+               return response.data;
+            });
     }
 
     return ({

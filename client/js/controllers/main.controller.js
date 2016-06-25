@@ -1,10 +1,12 @@
 'use strict';
 
-app.controller('mainController',['$scope', '$http', '$sce', 'quoteService', function($scope, $http, $sce, quoteService) {
+app.controller('mainController',['$scope', '$http', '$rootScope', '$location', 'quoteService',
+    function($scope, $http, $rootScope, $location, quoteService) {
 
     $scope.pageHeading = 'All Quotes';
-    $scope.quotes = {};
+    $scope.quotes = [];
     $scope.actionButtonsHidden = true;
+    $rootScope.location = $location.path();
 
     $scope.deleteConfirmationPopover = {
         templateUrl: 'views/templates/deleteConfirmationPopover.template.html'
@@ -30,6 +32,13 @@ app.controller('mainController',['$scope', '$http', '$sce', 'quoteService', func
             .then(function() {
                 getQuotes();
             });
+    };
+
+    $scope.updateQuote = function(quote) {
+      return quoteService.updateQuote(quote)
+          .then(function() {
+              getQuotes();
+          });
     };
 
     getQuotes();

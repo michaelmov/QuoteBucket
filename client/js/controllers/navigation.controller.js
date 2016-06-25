@@ -24,7 +24,7 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteSer
 
     $scope.getClass = function (path) {
         return ($location.path() === path) ? 'active' : '';
-    }
+    };
 
 
     $scope.$on('login-done', function() {

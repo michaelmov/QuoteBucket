@@ -266,6 +266,15 @@ label {
   color: #FF7E82;
   cursor: pointer;
 }
+.quotes .quote-card .action-buttons .fa-star {
+  color: #ffd22e;
+}
+.quotes .quote-card .action-buttons .fa-star:hover {
+  color: #ffd22e;
+}
+.quotes .quote-card .action-buttons .fa-star-o:hover {
+  color: #ffd22e;
+}
 
 .popover {
   min-width: 200px;

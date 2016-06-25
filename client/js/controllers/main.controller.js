@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('mainController',['$scope', '$http', '$rootScope', '$location', 'quoteService',
-    function($scope, $http, $rootScope, $location, quoteService) {
+app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '$uibModal', 'quoteService',
+    function($scope, $http, $rootScope, $location, $uibModal, quoteService) {
 
     $scope.pageHeading = 'All Quotes';
     $scope.quotes = [];
@@ -33,6 +33,19 @@ app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '
                 getQuotes();
             });
     };
+
+    $scope.openEditModal = function(quote) {
+        $uibModal.open({
+            templateUrl: 'views/templates/editQuoteModal.template.html',
+            controller: 'editQuoteModalController',
+            resolve: {
+                quote: quote
+            }
+
+        });
+    };
+
+
 
     $scope.updateQuote = function(quote) {
       return quoteService.updateQuote(quote)

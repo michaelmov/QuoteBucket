@@ -1,0 +1,25 @@
+<div class="edit-quote">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Quote</h3>
+    </div>
+    <div class="modal-body">
+        <form role="form" name="editQuoteForm">
+            <div class="form-group">
+                <label for="quote">Quote</label>
+                <textarea name="quote" rows="5" class="form-control" id="quote" ng-model="quote.text" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input name="author" rows="5" class="form-control" id="author" ng-model="quote.author" />
+            </div>
+            <div class="form-group">
+                <label for="source">Source URL</label>
+                <input name="source" rows="5" class="form-control" id="source" ng-model="quote.source" />
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" type="submit" ng-click="save()" ng-disabled="editQuoteForm.$invalid">Save</button>
+    </div>
+</div>

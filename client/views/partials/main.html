@@ -11,16 +11,16 @@
                     <h4 class="quote-author">{{ quote.author }}</h4>
                     <a href="{{ quote.source }}" target="_blank" class="quote-source"><h5>{{ quote.source }}</h5></a>
                     <div class="action-buttons hidden">
-                        <a href="#"><i class="fa fa-pencil"></i></a>
-                        <a href="#"><i class="fa" ng-class="{'fa-star-o': !quote.favorite, 'fa-star': quote.favorite}" ng-click="quote.favorite = !quote.favorite; updateQuote(quote)"></i></a>
-                        <a href="#">
-                            <i class="fa fa-trash-o"
-                               uib-popover-template="deleteConfirmationPopover.templateUrl"
-                               popover-placement="bottom"
-                               popover-append-to-body="true"
-                               popover-is-open="quote.isOpen"
-                               popover-trigger="outsideClick"
-                           ng-click="openDeleteConfirmationPopover($index)"></i>
+                        <a href="#" ng-click="openEditModal(quote)"><i class="fa fa-pencil"></i></a>
+                        <a href="#" ng-click="quote.favorite = !quote.favorite; updateQuote(quote)"><i class="fa" ng-class="{'fa-star-o': !quote.favorite, 'fa-star': quote.favorite}"></i></a>
+                        <a href="#"
+                           uib-popover-template="deleteConfirmationPopover.templateUrl"
+                           popover-placement="bottom"
+                           popover-append-to-body="true"
+                           popover-is-open="quote.isOpen"
+                           popover-trigger="outsideClick"
+                           ng-click="openDeleteConfirmationPopover($index)">
+                            <i class="fa fa-trash-o"></i>
                         </a>
                     </div>
                 </div>

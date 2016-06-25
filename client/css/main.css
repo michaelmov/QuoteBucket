@@ -130,6 +130,21 @@ label {
   border-radius: 2px;
 }
 
+.modal-content {
+  border-radius: 2px;
+}
+.modal-content .btn {
+  width: 100px;
+}
+
+.modal-header {
+  background: #ff989b;
+}
+
+.modal-title {
+  color: #ffffff;
+}
+
 .navbar {
   height: 70px;
   box-shadow: 0 1px 4px #CCCCCC;

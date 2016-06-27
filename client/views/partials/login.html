@@ -7,19 +7,19 @@
     </div>
     <h2 class="text-center">Sign In</h2>
     <div class="login-form">
-        <form ng-submit="authenticate()" role="form" >
+        <form ng-submit="authenticate()" role="form" name="loginForm" novalidate>
 
             <div class="alert alert-danger" role="alert" ng-if="error">{{ error }}</div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" ng-model="credentials.email" />
+                    <input type="email" name="email" class="form-control" id="email" ng-model="credentials.email" required />
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" ng-model="credentials.password"/>
+                    <input type="password" name="password" class="form-control" id="password" ng-model="credentials.password" required/>
                 </div>
-                <button class="btn btn-primary" type="submit">Sign In</button>
+                <button class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid">Sign In</button>
         </form>
     </div>
     <h6 class="text-center">Don't have an account?</h6>

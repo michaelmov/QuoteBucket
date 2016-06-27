@@ -16,7 +16,7 @@ app.controller('registerController', ['$scope', '$location', 'authService', func
                 $location.path('/app');
             })
             .catch(function (err) {
-                $scope.error = err.message;
+                $scope.error = err.data;
             });
     };
 }]);

@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('registerController', ['$scope', '$location', 'authService', function($scope, $location, authService) {
+app.controller('registerController', ['$scope', '$location', 'ngToast', 'authService', function($scope, $location, ngToast, authService) {
 
     $scope.credentials = {
         name: '',
@@ -14,6 +14,9 @@ app.controller('registerController', ['$scope', '$location', 'authService', func
         authService.register($scope.credentials)
             .then(function() {
                 $location.path('/app');
+                ngToast.success({
+                    content: 'Account created successfully'
+                });
             })
             .catch(function (err) {
                 $scope.error = err.data;

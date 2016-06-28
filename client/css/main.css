@@ -145,6 +145,15 @@ label {
   color: #ffffff;
 }
 
+.ng-toast {
+  margin-top: 40px;
+}
+.ng-toast .alert {
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 0 0 5px #CCCCCC;
+}
+
 .navbar {
   height: 70px;
   box-shadow: 0 1px 4px #CCCCCC;
@@ -293,7 +302,7 @@ label {
 
 .popover {
   min-width: 200px;
-  max-width: 500px;
+  max-width: 350px;
   border-radius: 2px;
 }
 .popover .popover-content {
@@ -304,7 +313,7 @@ label {
   margin: 20px;
 }
 .add-quote .form-control {
-  width: 430px;
+  width: 285px;
 }
 .add-quote .btn {
   width: 100%;

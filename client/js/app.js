@@ -4,10 +4,11 @@ var app = angular.module('quoteBucketApp', [
     'ngRoute',
     'ngAnimate',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngToast'
 ]);
 
-app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+app.config(['$routeProvider', '$locationProvider', '$httpProvider', 'ngToastProvider',  function ($routeProvider, $locationProvider, $httpProvider, ngToast) {
 
     $routeProvider
 
@@ -54,6 +55,14 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function ($r
             }
         };
     }]);
+
+    // ngToast configuration
+    ngToast.configure({
+        horizontalPosition: 'center',
+        animation: 'fade'
+    });
+
+
 }]);
 
 

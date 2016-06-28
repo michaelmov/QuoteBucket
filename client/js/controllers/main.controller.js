@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '$uibModal', 'quoteService',
-    function($scope, $http, $rootScope, $location, $uibModal, quoteService) {
+app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '$uibModal', 'ngToast', 'quoteService',
+    function($scope, $http, $rootScope, $location, $uibModal, ngToast, quoteService) {
 
     $scope.pageHeading = 'All Quotes';
     $scope.quotes = [];
@@ -19,6 +19,10 @@ app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '
             });
     }
 
+    function updateQuote(quote) {
+        return quoteService.updateQuote(quote)
+    }
+
     $scope.openDeleteConfirmationPopover = function(i) {
         $scope.quotes[i].isOpen = true;
     };
@@ -31,6 +35,10 @@ app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '
         return quoteService.deleteQuote(quoteId)
             .then(function() {
                 getQuotes();
+                ngToast.success({
+                    content: 'Deleted'
+
+                });
             });
     };
 
@@ -46,17 +54,21 @@ app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '
     };
 
 
-
-    $scope.updateQuote = function(quote) {
-      return quoteService.updateQuote(quote)
-          .then(function() {
-              getQuotes();
-          });
+    $scope.favoriteQuote = function(quote) {
+        updateQuote(quote)
+            .then(function() {
+                getQuotes();
+            });
     };
 
     getQuotes();
     
-    $scope.$on('quote-added', getQuotes);
+    $scope.$on('quote-added', function() {
+        ngToast.success({
+            content: 'Saved'
+        });
+        getQuotes();
+    });
 
 
 }]);

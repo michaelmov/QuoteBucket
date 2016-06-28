@@ -1,6 +1,7 @@
 <header>
     <navigation></navigation>
 </header>
+<toast></toast>
 <div class="container">
     <div class="quotes">
         <h1>{{ pageHeading }}</h1>
@@ -12,7 +13,7 @@
                     <a href="{{ quote.source }}" target="_blank" class="quote-source"><h5>{{ quote.source }}</h5></a>
                     <div class="action-buttons hidden">
                         <a href="#" ng-click="openEditModal(quote)"><i class="fa fa-pencil"></i></a>
-                        <a href="#" ng-click="quote.favorite = !quote.favorite; updateQuote(quote)"><i class="fa" ng-class="{'fa-star-o': !quote.favorite, 'fa-star': quote.favorite}"></i></a>
+                        <a href="#" ng-click="quote.favorite = !quote.favorite; favoriteQuote(quote)"><i class="fa" ng-class="{'fa-star-o': !quote.favorite, 'fa-star': quote.favorite}"></i></a>
                         <a href="#"
                            uib-popover-template="deleteConfirmationPopover.templateUrl"
                            popover-placement="bottom"

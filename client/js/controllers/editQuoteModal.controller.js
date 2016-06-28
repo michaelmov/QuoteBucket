@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('editQuoteModalController', ['$scope','$uibModalInstance', 'quote', 'quoteService',
-    function($scope, $uibModalInstance, quote, quoteService) {
+app.controller('editQuoteModalController', ['$scope','$uibModalInstance', 'quote', 'ngToast', 'quoteService',
+    function($scope, $uibModalInstance, quote, ngToast, quoteService) {
         $scope.quote = quote;
 
         $scope.cancel = function() {
@@ -12,6 +12,9 @@ app.controller('editQuoteModalController', ['$scope','$uibModalInstance', 'quote
             return quoteService.updateQuote($scope.quote)
                 .then(function() {
                     $uibModalInstance.close();
+                        ngToast.success({
+                            content: 'Saved'
+                        });
                 });
         }
     }

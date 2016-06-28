@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteService', function($scope, $location, authService, quoteService) {
+app.controller('navigationCtrl', ['$scope', '$location','authService', 'ngToast', 'quoteService', function($scope, $location, authService, ngToast, quoteService) {
 
     $scope.isLoggedIn = authService.isLoggedIn();
     $scope.currentUser = authService.currentUser();
@@ -47,9 +47,12 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'quoteSer
     };
 
     $scope.logout = function() {
-        authService.logout();
-        $scope.isLoggedIn = authService.isLoggedIn();
-        $scope.currentUser = authService.currentUser();
-        $location.path('/login');
+        authService.logout()
+            $scope.isLoggedIn = authService.isLoggedIn();
+            $scope.currentUser = authService.currentUser();
+            $location.path('/login');
+            ngToast.success({
+                content: 'Signed out'
+            });
     }
 }]);

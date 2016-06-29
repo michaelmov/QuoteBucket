@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" ng-cloak>
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" ng-init="navbarCollapsed = true" ng-click="navbarCollapsed = !navbarCollapsed" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -12,7 +12,10 @@
                 <!--<h4>QuoteBucket</h4>-->
             </a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+        <div class="navbar-header text-center   ">
+
+        </div>
+        <div uib-collapse="navbarCollapsed" class="navbar-collapse" aria-expanded="false" style="height: 1px;">
             <div ng-hide="isLoggedIn">
                 <a href="/login" class="navbar-link navbar-right">Sign In</a>
                 <a href="/register" class="btn btn-secondary navbar-right">Sign Up</a>
@@ -28,14 +31,15 @@
                    popover-trigger="outsideClick">{{ currentUser.name }}
                     <i class="fa fa-angle-down"></i>
                 </a>
-                <a href="#" class="navbar-right"
+                <a href="#" class="add-button navbar-right"
                    uib-tooltip="Add a quote"
                    tooltip-placement="bottom"
                    uib-popover-template="newQuotePopover.templateUrl"
                    popover-placement="bottom"
                    popover-append-to-body="true"
                    popover-is-open="newQuotePopover.isOpen"
-                   popover-trigger="outsideClick"><i class="fa fa-plus fa-2x add-button"></i></a>
+                   popover-trigger="outsideClick"><i class="fa fa-plus fa-2x"></i>
+                </a>
             </div>
         </div>
     </div>

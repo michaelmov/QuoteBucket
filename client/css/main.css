@@ -115,8 +115,7 @@ label {
   border-color: #FF7E82;
 }
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary:target {
-  color: #ffffff !important;
-  background: #ff989b !important;
+  color: #FF7E82 !important;
   border-color: #ff989b !important;
   box-shadow: none;
 }
@@ -168,8 +167,11 @@ label {
   margin: 18px 10px;
 }
 .navbar .btn-secondary {
-  padding-left: 26px;
-  padding-right: 26px;
+  padding: 7px 26px;
+}
+.navbar .btn-secondary:hover, .navbar .btn-secondary:focus, .navbar .btn-secondary:active, .navbar .btn-secondary:target {
+  color: #ffffff !important;
+  background: #ff989b !important;
 }
 .navbar .navbar-link {
   height: 70px;
@@ -186,7 +188,6 @@ label {
   border-bottom: 3px solid #FF7E82;
 }
 .navbar .add-button {
-  margin-top: 22px;
   margin-right: 22px;
   margin-left: 22px;
 }
@@ -299,6 +300,9 @@ label {
   min-width: 200px;
   max-width: 350px;
   border-radius: 2px;
+}
+.popover .arrow {
+  right: 20px;
 }
 .popover .popover-content {
   padding: 0;

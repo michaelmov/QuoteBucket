@@ -1,45 +1,61 @@
 <nav class="navbar navbar-default navbar-fixed-top" ng-cloak>
     <div class="container">
         <div class="navbar-header">
+            <a href="/app" class="navbar-brand pull-left">
+                <span class="icon i-logo"></span>
+                <!--<h4>QuoteBucket</h4>-->
+            </a>
             <button type="button" class="navbar-toggle collapsed" ng-init="navbarCollapsed = true" ng-click="navbarCollapsed = !navbarCollapsed" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/app" class="navbar-brand">
-                <span class="icon i-logo"></span>
-                <!--<h4>QuoteBucket</h4>-->
-            </a>
         </div>
-        <div class="navbar-header text-center   ">
+        <div class="navbar-header pull-right">
+
 
         </div>
+
         <div uib-collapse="navbarCollapsed" class="navbar-collapse" aria-expanded="false" style="height: 1px;">
-            <div ng-hide="isLoggedIn">
-                <a href="/login" class="navbar-link navbar-right">Sign In</a>
-                <a href="/register" class="btn btn-secondary navbar-right">Sign Up</a>
+            <div ng-hide="isLoggedIn" class="pull-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="/register" class="btn btn-secondary">Sign Up</a></li>
+                    <li><a href="/login" class="navbar-link">Sign In</a></li>
+                </ul>
             </div>
-            <div ng-show="isLoggedIn">
-                <a href="/app" class="navbar-link nav-main navbar-left" ng-class="getClass('/app')">All</a>
-                <a href="/app/favorite" class="navbar-link nav-main navbar-left" ng-class="getClass('/app/favorite')">Favorite</a>
-                <a href="#" class="navbar-link navbar-right"
-                   uib-popover-template="userAccountPopover.templateUrl"
-                   popover-placement="bottom"
-                   popover-append-to-body="true"
-                   popover-is-open="userAccountPopover.isOpen"
-                   popover-trigger="outsideClick">{{ currentUser.name }}
-                    <i class="fa fa-angle-down"></i>
-                </a>
-                <a href="#" class="add-button navbar-right"
-                   uib-tooltip="Add a quote"
-                   tooltip-placement="bottom"
-                   uib-popover-template="newQuotePopover.templateUrl"
-                   popover-placement="bottom"
-                   popover-append-to-body="true"
-                   popover-is-open="newQuotePopover.isOpen"
-                   popover-trigger="outsideClick"><i class="fa fa-plus fa-2x"></i>
-                </a>
+            <div ng-show="isLoggedIn" class="pull-left">
+                <ul class="nav navbar-nav">
+                    <li><a href="/app" class="navbar-link nav-main" ng-class="getClass('/app')">All</a></li>
+                    <li><a href="/app/favorite" class="navbar-link nav-main" ng-class="getClass('/app/favorite')">Favorite</a></li>
+                </ul>
+            </div>
+            <div ng-show="isLoggedIn" class="pull-right">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class="navbar-link"
+                           uib-tooltip="Add a quote"
+                           tooltip-placement="bottom"
+                           uib-popover-template="newQuotePopover.templateUrl"
+                           popover-placement="bottom"
+                           popover-append-to-body="true"
+                           popover-is-open="newQuotePopover.isOpen"
+                           popover-trigger="outsideClick"><i class="fa fa-plus fa-2x add-button"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="navbar-link"
+                           uib-popover-template="userAccountPopover.templateUrl"
+                           popover-placement="bottom-right"
+                           popover-append-to-body="true"
+                           popover-is-open="userAccountPopover.isOpen"
+                           popover-trigger="outsideClick">{{ currentUser.name }}
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </li>
+                </ul>
+
+
             </div>
         </div>
     </div>

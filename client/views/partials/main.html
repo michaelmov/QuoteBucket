@@ -16,8 +16,8 @@
                         <a href="#" ng-click="quote.favorite = !quote.favorite; favoriteQuote(quote)"><i class="fa" ng-class="{'fa-star-o': !quote.favorite, 'fa-star': quote.favorite}"></i></a>
                         <a href="#"
                            uib-popover-template="deleteConfirmationPopover.templateUrl"
-                           popover-placement="bottom"
-                           popover-append-to-body="true"
+                           popover-placement="top-right"
+                           popover-append-to-body="false"
                            popover-is-open="quote.isOpen"
                            popover-trigger="outsideClick"
                            ng-click="openDeleteConfirmationPopover($index)">

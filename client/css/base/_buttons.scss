@@ -35,8 +35,7 @@
   &:focus,
   &:active,
   &:target {
-    color: $white !important;
-    background: lighten($primary-color, 5%) !important;;
+    color: $primary-color !important;
     border-color: lighten($primary-color, 5%) !important;
     box-shadow: none;
   }

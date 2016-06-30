@@ -12,14 +12,15 @@ var quoteSchema = new Schema({
         type: String
     },
     author: {
-        type: String
+        type: String,
+        default: 'Unknown author'
     },
     favorite: {
         type: Boolean,
         default: false
     },
     source: {
-        type: String
+        type: String,
     }
 });
 

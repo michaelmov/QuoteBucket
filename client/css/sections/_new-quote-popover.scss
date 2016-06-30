@@ -3,9 +3,14 @@
   max-width: 350px;
   border-radius: $border-radius;
 
+  .arrow {
+    right: 20px;
+  }
+
   .popover-content {
     padding: 0;
   }
+
 }
 
 .add-quote {

@@ -2,6 +2,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+
         useminPrepare: {
             html: ['client/app.html'],
             options: {
@@ -9,6 +10,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // Copy all necessary files to "dist" directory
         copy: {
             html: {
                 src: 'client/*.html',
@@ -32,10 +34,13 @@ module.exports = function(grunt) {
             }
         },
 
+        // Tell usemin which HTML file to use
         usemin: {
             html: ['dist/client/app.html']
         },
 
+
+        // Compile .scss files into css
         sass: {
             dist: {
                 options: {
@@ -47,6 +52,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // Convert .svg icons into webfont
         webfont : {
             icons : {
                 src : 'client/img/icons/*.svg',
@@ -62,6 +68,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // Watch .scss files for changes and compile into css when changes found
         watch: {
             scss: {
                 files : ['client/css/**/*.scss'],

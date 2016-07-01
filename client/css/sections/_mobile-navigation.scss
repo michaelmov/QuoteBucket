@@ -1,0 +1,23 @@
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  color: $white;
+  background: $primary-color;
+  height: 100%;
+  width: 200px;
+  z-index: 1050;
+  overflow-y: scroll;
+  transition: all 0.4s ease;
+  transform: translateX(-200px);
+
+
+  ul {
+    padding: 30px;
+    list-style: none;
+  }
+
+}
+
+.mobile-nav-is-open {
+  transform: translateX(0);
+}

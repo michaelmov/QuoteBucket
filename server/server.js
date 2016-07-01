@@ -22,7 +22,7 @@ var port = process.env.PORT || 3000;
 // View engine setup
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', path.join(__dirname, '../client/views'));
+app.set('views', path.join(__dirname, '../client'));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

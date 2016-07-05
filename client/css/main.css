@@ -348,4 +348,25 @@ label {
   height: 35px;
 }
 
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  color: #ffffff;
+  background: #FF7E82;
+  height: 100%;
+  width: 200px;
+  z-index: 1050;
+  overflow-y: scroll;
+  transition: all 0.4s ease;
+  transform: translateX(-200px);
+}
+.mobile-nav ul {
+  padding: 30px;
+  list-style: none;
+}
+
+.mobile-nav-is-open {
+  transform: translateX(0);
+}
+
 /*# sourceMappingURL=main.css.map */

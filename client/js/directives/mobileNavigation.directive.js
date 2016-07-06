@@ -2,7 +2,8 @@
 
 app.directive('mobileNavigation', function() {
     return {
-        restrict: 'EA',
-        templateUrl: '/views/templates/mobileNavigation.template.html'
-    }
+        restrict: 'E',
+        templateUrl: '/views/templates/mobileNavigation.template.html',
+        controller: 'navigationCtrl'
+        }
 });

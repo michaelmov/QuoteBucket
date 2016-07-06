@@ -12,6 +12,10 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'ngToast'
         source: ''
     };
 
+    $scope.mobileNavigation = {
+        isOpen: false
+    };
+
     $scope.newQuotePopover = {
         isOpen: false,
         templateUrl: 'views/templates/newQuotePopover.template.html'
@@ -22,6 +26,7 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'ngToast'
         templateUrl: 'views/templates/userAccountPopover.template.html'
     };
 
+
     $scope.getClass = function (path) {
         return ($location.path() === path) ? 'active' : '';
     };
@@ -31,6 +36,11 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'ngToast'
         $scope.isLoggedIn = authService.isLoggedIn();
         $scope.currentUser = authService.currentUser();
     });
+
+    $scope.openMobileNav = function() {
+        $scope.mobileNavigation.isOpen = true;
+    };
+
 
     $scope.addQuote = function() {
         quoteService.addQuote($scope.newQuote)

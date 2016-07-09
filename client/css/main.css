@@ -64,8 +64,8 @@ label {
 
 @font-face {
   font-family: "icons";
-  src: url("fonts/icons.eot?e67d96f26f3b2d9b1f68fa20a9f81c25");
-  src: url("fonts/icons.eot?#iefix") format("embedded-opentype"), url("fonts/icons.woff?e67d96f26f3b2d9b1f68fa20a9f81c25") format("woff"), url("fonts/icons.ttf?e67d96f26f3b2d9b1f68fa20a9f81c25") format("truetype");
+  src: url("../fonts/icons.eot?a6950d37ca0ef4db904ca62bab460bf2");
+  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff?a6950d37ca0ef4db904ca62bab460bf2") format("woff"), url("../fonts/icons.ttf?a6950d37ca0ef4db904ca62bab460bf2") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

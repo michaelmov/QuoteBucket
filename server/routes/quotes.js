@@ -43,7 +43,7 @@ router.post('/create', function(req, res, next) {
     if(token._id) {
         var quote = new Quote();
         quote._user = token._id;
-        quote.text = req.body.quote;
+        quote.text = req.body.text;
         if(req.body.author) {
             quote.author = req.body.author;
         }

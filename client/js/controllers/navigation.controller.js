@@ -1,15 +1,22 @@
 'use strict';
 
-app.controller('navigationCtrl', ['$scope', '$location','authService', 'ngToast', 'quoteService', function($scope, $location, authService, ngToast, quoteService) {
+app.controller('navigationCtrl', ['$scope', '$location','authService', 'ngToast', '$uibModal', 'quoteService', function($scope, $location, authService, ngToast, $uibModal, quoteService) {
 
     $scope.isLoggedIn = authService.isLoggedIn();
     $scope.currentUser = authService.currentUser();
 
 
     $scope.newQuote = {
-        quote: '',
+        text: '',
         author: '',
         source: ''
+    };
+
+    $scope.openAddModal = function() {
+        $uibModal.open({
+            templateUrl: 'views/templates/addQuoteModal.template.html',
+            controller: 'addQuoteModalController'
+        });
     };
 
     $scope.mobileNavigation = {
@@ -37,9 +44,6 @@ app.controller('navigationCtrl', ['$scope', '$location','authService', 'ngToast'
         $scope.currentUser = authService.currentUser();
     });
 
-    $scope.openMobileNav = function() {
-        $scope.mobileNavigation.isOpen = true;
-    };
 
 
     $scope.addQuote = function() {

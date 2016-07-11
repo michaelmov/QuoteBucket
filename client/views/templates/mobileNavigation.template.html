@@ -1,6 +1,11 @@
 <div class="mobile-nav" ng-class="{'mobile-nav-is-open': mobileNavigation.isOpen}">
-    <ul>
-        <li>All</li>
-        <li>Favorite</li>
+    <header>
+        <a href="/app" class="pull-left"><i class="icon i-logo"></i></a>
+        <a href="#" class="pull-right" ng-click="toggleMobileNav()"><i class="fa fa-close fa-2x pull-right"></i></a>
+    </header>
+    <ul class="nav-main">
+        <li><a href="/app" ng-class="getClass('/app')">All</a></li>
+        <li><a href="/app/favorite" ng-class="getClass('/app/favorite')">Favorite</a></li>
+        <li><a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> Sign out</a></li>
     </ul>
 </div>

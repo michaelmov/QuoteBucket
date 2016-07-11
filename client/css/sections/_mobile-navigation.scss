@@ -1,19 +1,54 @@
 .mobile-nav {
   position: fixed;
   top: 0;
-  color: $white;
-  background: $primary-color;
+  color: $grey-1;
+  background: $white;
+  box-shadow: 1px 0 4px $grey-3 ;
   height: 100%;
-  width: 200px;
+  width: $mobile-side-nav-width;
   z-index: 1050;
   overflow-y: scroll;
   transition: all 0.4s ease;
-  transform: translateX(-200px);
+  transform: translateX(-$mobile-side-nav-width - 2px);
 
+  header {
+    height: 50px;
+    margin-top: 10px;
+    padding-left: 20px;
+
+    .i-logo {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .fa-close {
+      padding: 5px 20px;
+    }
+  }
 
   ul {
-    padding: 30px;
     list-style: none;
+    padding: 0;
+  }
+
+  .nav-main {
+    margin-top: 20px;
+
+    li {
+      border-bottom: 1px solid $grey-4;
+
+      a {
+        color: $grey-2;
+        display: inline-block;
+        width: 100%;
+        padding: 10px 0 10px 30px;
+      }
+    }
+  }
+
+  .active {
+    color: $primary-color;
+    border-right: 3px solid $primary-color;
   }
 
 }

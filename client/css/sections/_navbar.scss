@@ -3,9 +3,24 @@
   background-color: $white;
   text-align: center;
 
-  
+  .navbar-header {
+    min-width: 100% ;
+  }
+
+  .mobile-hide {
+    @include breakpoint(0, $screen-sm-min) {
+      display: none;
+    }
+  }
+
+  .desktop-hide {
+    @include breakpoint($screen-sm-min, 0) {
+      display: none;
+    }
+  }
 
   .navbar-toggle {
+    margin-left: 10px;
     margin-top: 18px;
     margin-bottom: 18px;
   }
@@ -34,10 +49,6 @@
     padding-top: 25px;
   }
 
-  .nav-main {
-    width: 70px;
-    margin-right: 20px;
-  }
 
   .active {
     color: $primary-color;
@@ -67,10 +78,18 @@
   height: $navbar-height;
   margin-right: 30px;
 
+  @include breakpoint(0, $screen-sm-min) {
+    display: none;
+  }
+
   .i-logo {
     font-size: 3rem;
     margin: 10px 0;
     padding: 0;
     display: inline-block;
   }
+}
+
+.navbar-toggle {
+  border: none;
 }

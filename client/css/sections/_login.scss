@@ -1,5 +1,4 @@
 .i-logo {
-  margin-top: 60px;
   margin-bottom: 30px;
   overflow: visible;
   display: block;
@@ -10,7 +9,8 @@
 .login-form {
   margin: 30px auto;
   padding: 40px 33px;
-  width: 385px;
+  width: auto;
+  max-width: 385px;
   background: #ffffff;
   border: 1px solid $grey-3;
   border-radius: 2px;

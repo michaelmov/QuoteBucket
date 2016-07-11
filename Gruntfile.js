@@ -25,8 +25,15 @@ module.exports = function(grunt) {
                 dest: 'dist/'
             },
             fonts: {
-                src: 'client/css/fonts/**',
+                src: 'client/fonts/**',
                 dest: 'dist/'
+            },
+            fontawesome: {
+                expand: true,
+                flatten: true,
+                filter: 'isFile',
+                src: 'client/bower_components/font-awesome/fonts/**',
+                dest: 'dist/client/fonts/'
             },
             server: {
                 src: 'server/**',
@@ -56,10 +63,10 @@ module.exports = function(grunt) {
         webfont : {
             icons : {
                 src : 'client/img/icons/*.svg',
-                dest : 'client/css/fonts',
+                dest : 'client/fonts',
                 destCss: 'client/css/base',
                 options : {
-                    relativeFontPath: 'fonts',
+                    relativeFontPath: '../fonts',
                     stylesheet : 'scss',
                     templateOptions : {
                         classPrefix : 'i-'

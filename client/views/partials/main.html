@@ -8,24 +8,7 @@
         <h1>{{ pageHeading }}</h1>
         <div class="row">
             <div class="col-md-6" ng-repeat="quote in quotes | filter: (location == '/app/favorite' || '') && {favorite: true} track by $index">
-                <div class="quote-card" card-hover>
-                   <h2 class="quote-text">“{{ quote.text }}”</h2>
-                    <h4 class="quote-author">{{ quote.author }}</h4>
-                    <a href="{{ quote.source }}" target="_blank" class="quote-source"><h5>{{ quote.source }}</h5></a>
-                    <div class="action-buttons hidden">
-                        <a href="#" ng-click="openEditModal(quote)"><i class="fa fa-pencil"></i></a>
-                        <a href="#" ng-click="quote.favorite = !quote.favorite; favoriteQuote(quote)"><i class="fa" ng-class="{'fa-star-o': !quote.favorite, 'fa-star': quote.favorite}"></i></a>
-                        <a href="#"
-                           uib-popover-template="deleteConfirmationPopover.templateUrl"
-                           popover-placement="top-right"
-                           popover-append-to-body="false"
-                           popover-is-open="quote.isOpen"
-                           popover-trigger="outsideClick"
-                           ng-click="openDeleteConfirmationPopover($index)">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
-                    </div>
-                </div>
+                <quote-card></quote-card>
             </div>
         </div>
     </div>

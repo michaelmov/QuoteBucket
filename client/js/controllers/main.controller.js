@@ -7,6 +7,7 @@ app.controller('mainController',['$scope', '$http', '$rootScope', '$location', '
     $scope.quotes = [];
     $scope.actionButtonsHidden = true;
     $rootScope.location = $location.path();
+        
 
     $scope.deleteConfirmationPopover = {
         templateUrl: 'views/templates/deleteConfirmationPopover.template.html'

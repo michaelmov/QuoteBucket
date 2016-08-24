@@ -7,7 +7,9 @@
     <div class="quotes">
         <h1>{{ pageHeading }}</h1>
         <div class="row">
-            <quote-card></quote-card>
+            <div class="col-md-6" ng-repeat="quote in quotes | filter: (location == '/app/favorite' || '') && {favorite: true} track by $index">
+                <quote-card></quote-card>
+            </div>
         </div>
     </div>
 </div>

@@ -1,10 +1,10 @@
-import { QuoteBucktPage } from './app.po';
+import { QuoteBucketPage } from './app.po';
 
-describe('quote-buckt App', () => {
-  let page: QuoteBucktPage;
+describe('quote-bucket App', () => {
+  let page: QuoteBucketPage;
 
   beforeEach(() => {
-    page = new QuoteBucktPage();
+    page = new QuoteBucketPage();
   });
 
   it('should display welcome message', done => {

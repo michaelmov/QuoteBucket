@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
+import { ResgistrationComponent } from './resgistration/resgistration.component';
+import { RouterModule, Routes } from "@angular/router";
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAoa2e9fSnnVpYi55-l7U12wEoewdEmi8Y',
@@ -13,13 +15,23 @@ export const firebaseConfig = {
   messagingSenderId: '283019581956'
 };
 
+export const routes: Routes = [
+  {
+    path: 'register',
+    component: ResgistrationComponent
+
+  }
+];
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResgistrationComponent
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

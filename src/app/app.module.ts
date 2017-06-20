@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
-import { RegistrationComponent } from './resgistration/resgistration.component';
-import { RouterModule, Routes } from "@angular/router";
+import { RegistrationComponent } from './registration/registration.component';
+import { RouterModule } from "@angular/router";
 import { routes } from './app.routes';
 import { LoginComponent } from './login/login.component';
+import { QuotesComponent } from './quotes/quotes.component';
+import { AuthService } from "./core/auth.service";
+import { AngularFireAuth } from "angularfire2/auth";
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAoa2e9fSnnVpYi55-l7U12wEoewdEmi8Y',
@@ -22,14 +25,18 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    QuotesComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AngularFireAuth
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

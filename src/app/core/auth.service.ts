@@ -10,7 +10,7 @@ export class AuthService {
   }
 
   login(email, password) {
-    return this.af.auth.signInWithEmailAndPassword(email, password)
+    return this.af.auth.signInWithEmailAndPassword(email, password);
   }
 
   register(email, password) {

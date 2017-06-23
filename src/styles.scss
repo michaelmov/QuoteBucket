@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+// Base
+@import './app/core/styles/base/variables',
+'./app/core/styles/base/mixins',
+'./app/core/styles/base/layout',
+'./app/core/styles/base/typography',
+'./app/core/styles/base/icons',
+'./app/core/styles/base/buttons',
+'./app/core/styles/base/forms',
+'./app/core/styles/base/modal',
+'./app/core/styles/base/messages';
+
+
+
+// Sections
+@import './app/core/styles/sections/navbar',
+'./app/core/styles/sections/quotes',
+'./app/core/styles/sections/new-quote-popover',
+'./app/core/styles/sections/user-account-popover',
+'./app/core/styles/sections/delete-confirmation-popover',
+'./app/core/styles/sections/edit-quote-modal',
+'./app/core/styles/sections/mobile-navigation';

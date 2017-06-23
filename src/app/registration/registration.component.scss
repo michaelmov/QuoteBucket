@@ -1,3 +1,5 @@
-p {
-  color: lightgreen;
+@import "./../login/login.component";
+
+.register-form {
+  @extend .login-form;
 }

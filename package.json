@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.2.3",
     "@angular/platform-browser-dynamic": "^4.2.3",
     "@angular/router": "^4.2.3",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.26",
     "angularfire2": "^4.0.0-rc0",
     "core-js": "^2.4.1",
     "firebase": "^4.1.2",
@@ -28,7 +29,7 @@
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
-    "@angular/cli": "1.1.0",
+    "@angular/cli": "^1.1.0",
     "@angular/compiler-cli": "^4.2.3",
     "@angular/language-service": "^4.2.3",
     "@types/jasmine": "2.5.45",

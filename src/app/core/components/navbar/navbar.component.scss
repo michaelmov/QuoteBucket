@@ -1,7 +1,11 @@
+@import "./../../styles/base/variables";
+@import "./../../styles/base/mixins";
+
 .navbar {
   box-shadow: 0 1px 4px $grey-3 ;
   background-color: $white;
   text-align: center;
+  padding: 0;
 
   .navbar-header {
     min-width: 100% ;
@@ -43,10 +47,12 @@
   }
 
   .navbar-link {
+    color: $grey-2;
+    display: block;
     height: $navbar-height;
     width: auto;
     text-align: center;
-    padding-top: 25px;
+    padding: 25px 15px 20px;
   }
 
 
@@ -83,6 +89,7 @@
   }
 
   .i-logo {
+    color: $primary-color;
     font-size: 3rem;
     margin: 10px 0;
     padding: 0;

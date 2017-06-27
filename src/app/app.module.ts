@@ -12,6 +12,7 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { AuthService } from './core/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAoa2e9fSnnVpYi55-l7U12wEoewdEmi8Y',
@@ -28,7 +29,8 @@ export const firebaseConfig = {
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    QuotesComponent
+    QuotesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

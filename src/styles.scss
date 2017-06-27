@@ -10,10 +10,8 @@
 './app/core/styles/base/messages';
 
 
-
 // Sections
-@import './app/core/styles/sections/navbar',
-'./app/core/styles/sections/quotes',
+@import './app/core/styles/sections/quotes',
 './app/core/styles/sections/new-quote-popover',
 './app/core/styles/sections/user-account-popover',
 './app/core/styles/sections/delete-confirmation-popover',

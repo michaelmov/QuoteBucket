@@ -1,6 +1,5 @@
-.popover {
-  min-width: 200px;
-  max-width: 350px;
+@import './../../core/styles/base/variables';
+app-new-quote-popover {
   border-radius: $border-radius;
 
   .arrow {

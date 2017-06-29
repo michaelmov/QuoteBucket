@@ -1,0 +1,17 @@
+<div class="add-quote">
+  <form (ngSubmit)="addQuote($event, quote.value, author.value, sourceUrl.value)" role="form" name="newQuoteForm">
+    <div class="form-group">
+      <label for="quote">Quote</label>
+      <textarea name="quote"  #quote rows="5" class="form-control" id="quote" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input name="author" #author rows="5" class="form-control" id="author" />
+    </div>
+    <div class="form-group">
+      <label for="source">Source URL</label>
+      <input name="source" #sourceUrl rows="5" class="form-control" id="source" />
+    </div>
+    <button class="btn btn-primary" type="submit" ng-disabled="newQuoteForm.$invalid">Add Quote</button>
+  </form>
+</div>

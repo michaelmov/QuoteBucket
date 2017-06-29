@@ -12,11 +12,13 @@ export class RegistrationComponent {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  register(event, email, password) {
+  register(event, name, email, password) {
     event.preventDefault();
     this.authService.register(email, password).then(
       (user) => {
-        this.router.navigate(['/app'])
+        this.authService.saveUserInfo(user.uid, name, email).then(() => {
+          this.router.navigate(['']);
+        });
       },
       (error) => {
         this.error = error;

@@ -4,12 +4,12 @@
   </div>
   <h2 class="text-center">Create Account</h2>
   <div class="register-form">
-    <form (submit)="register($event, email.value, password.value)" role="form" name="registerForm" novalidate>
+    <form (submit)="register($event, name.value, email.value, password.value)" role="form" name="registerForm" novalidate>
       <div class="alert alert-danger" role="alert" *ngIf="error">{{ error.message }}</div>
-      <!--<div class="form-group">-->
-        <!--<label for="name">Your Name</label>-->
-        <!--<input name="name" class="form-control" id="name" ng-model="credentials.name" required />-->
-      <!--</div>-->
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input name="name" #name class="form-control" id="name" required />
+      </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" #email class="form-control" id="email"  required />

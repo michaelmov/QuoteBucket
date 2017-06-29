@@ -1,5 +1,5 @@
-@import "./../../styles/base/variables";
-@import "./../../styles/base/mixins";
+@import "./../../core/styles/base/variables";
+@import "./../../core/styles/base/mixins";
 
 .navbar {
   box-shadow: 0 1px 4px $grey-3 ;
@@ -47,6 +47,8 @@
   }
 
   .navbar-link {
+    background: none;
+    border: none;
     color: $grey-2;
     display: block;
     height: $navbar-height;

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database'
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -12,7 +13,9 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { AuthService } from './core/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { QuoteCardComponent } from './quotes/quote-card/quote-card.component';
+import { NewQuotePopoverComponent } from './components/new-quote-popover/new-quote-popover.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAoa2e9fSnnVpYi55-l7U12wEoewdEmi8Y',
@@ -30,18 +33,21 @@ export const firebaseConfig = {
     RegistrationComponent,
     LoginComponent,
     QuotesComponent,
-    NavbarComponent
+    NavbarComponent,
+    QuoteCardComponent,
+    NewQuotePopoverComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
-    NgbModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    AngularFireDatabase
   ],
   bootstrap: [AppComponent]
 })

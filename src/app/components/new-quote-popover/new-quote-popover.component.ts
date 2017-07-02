@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
+import { Component, Input } from '@angular/core';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-new-quote-popover',
@@ -7,12 +7,10 @@ import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database
   styleUrls: ['./new-quote-popover.component.scss']
 })
 export class NewQuotePopoverComponent {
-  private quotes: FirebaseListObservable<any[]>;
-  private newQuote;
+  @Input() quotes: FirebaseListObservable<any[]>;
 
-  constructor(db: AngularFireDatabase) {
-    this.quotes = db.list('/quotes');
-  }
+  constructor() {}
+
   addQuote(event, quote: string, author: string, sourceUrl: string) {
     event.preventDefault();
     this.quotes.push({

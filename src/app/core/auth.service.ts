@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app'
 import { AngularFireAuth } from "angularfire2/auth";
-import {AngularFireDatabase} from "angularfire2/database";
+import { AngularFireDatabase } from "angularfire2/database";
 
 @Injectable()
 export class AuthService {
   public user: Observable<firebase.User>;
+
   constructor(public af: AngularFireAuth, public db: AngularFireDatabase) {
   }
 
@@ -27,6 +28,10 @@ export class AuthService {
       name: name,
       email: email
     });
+  }
+
+  getCurrentUser() {
+    return this.af.auth.currentUser;
   }
 }
 

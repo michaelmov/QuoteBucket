@@ -9,13 +9,12 @@
       </ul>
       <ul class="nav navbar-nav mobile-hide">
         <li>
-          <button class="navbar-link" [ngbPopover]="popContent" placement="bottom" container="body">
+          <button class="navbar-link" [ngbPopover]="popContent" placement="bottom">
             <i class="fa fa-plus fa-2x add-button"></i>
           </button>
           <ng-template #popContent>
-            <app-new-quote-popover></app-new-quote-popover>
+            <app-new-quote-popover [quotes]="quotes"></app-new-quote-popover>
           </ng-template>
-
         </li>
         <li>
           <a href="#" class="navbar-link">

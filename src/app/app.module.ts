@@ -10,12 +10,13 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { QuotesComponent } from './quotes/quotes.component';
-import { AuthService } from './core/auth.service';
+import { AuthService } from './core/services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { QuoteCardComponent } from './quotes/quote-card/quote-card.component';
 import { NewQuotePopoverComponent } from './components/new-quote-popover/new-quote-popover.component';
+import { QuotesService } from './core/services/quotes.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAoa2e9fSnnVpYi55-l7U12wEoewdEmi8Y',
@@ -46,6 +47,7 @@ export const firebaseConfig = {
   ],
   providers: [
     AuthService,
+    QuotesService,
     AngularFireAuth,
     AngularFireDatabase
   ],

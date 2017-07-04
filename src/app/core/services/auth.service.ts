@@ -8,8 +8,8 @@ import { AngularFireDatabase } from "angularfire2/database";
 export class AuthService {
   public user: Observable<firebase.User>;
 
-  constructor(public af: AngularFireAuth, public db: AngularFireDatabase) {
-  }
+  constructor(public af: AngularFireAuth, public db: AngularFireDatabase) {}
+
 
   login(email, password) {
     return this.af.auth.signInWithEmailAndPassword(email, password);
@@ -32,6 +32,10 @@ export class AuthService {
 
   getCurrentUser() {
     return this.af.auth.currentUser;
+  }
+
+  getAuthState(): Observable<firebase.User> {
+    return this.af.authState;
   }
 }
 

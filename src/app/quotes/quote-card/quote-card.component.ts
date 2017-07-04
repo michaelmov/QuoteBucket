@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-quote-card',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quote-card.component.scss']
 })
 export class QuoteCardComponent implements OnInit {
+  @Input() quote;
 
   constructor() { }
 

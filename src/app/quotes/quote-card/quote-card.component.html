@@ -1,3 +1,10 @@
-<p>
-  quote-card works!
-</p>
+<div class="quote-card">
+  <h2 class="quote-text">“{{ quote.quote }}”</h2>
+  <h4 class="quote-author">{{ quote.author }}</h4>
+  <a href="{{ quote.source }}" target="_blank" class="quote-source"><h5>{{ quote.source }}</h5></a>
+  <div class="action-buttons">
+    <a href="#"><i class="fa fa-pencil"></i></a>
+    <a href="#"><i class="fa fa-star"></i></a>
+    <a href="#"><i class="fa fa-trash-o"></i></a>
+  </div>
+</div>

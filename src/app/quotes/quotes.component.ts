@@ -8,9 +8,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: './quotes.component.html',
   styleUrls: ['./quotes.component.scss']
 })
-export class QuotesComponent implements OnInit{
+export class QuotesComponent implements OnInit {
   public isLoggedIn: boolean;
-  private quotes: FirebaseListObservable<any[]>;
+  public quotes: FirebaseListObservable<any[]>;
   private currentUser;
 
   constructor(private authService: AuthService, private router: Router, private db: AngularFireDatabase) {
@@ -31,7 +31,7 @@ export class QuotesComponent implements OnInit{
           this.router.navigate(['login']);
         }
       }
-    )
+    );
   }
 
   logout() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database';
 import { QuotesService } from '../core/services/quotes.service';
 
 @Component({
@@ -18,7 +18,6 @@ export class QuotesComponent implements OnInit {
     private authService: AuthService,
     private quotesService: QuotesService,
     private router: Router,
-    private db: AngularFireDatabase
   ) {}
 
   ngOnInit() {
@@ -27,7 +26,8 @@ export class QuotesComponent implements OnInit {
         if (auth != null) {
           this.isLoggedIn = true;
           this.currentUser = this.authService.getCurrentUser();
-          this.quotes = this.quotesService.getAllQuotes(this.currentUser.uid);
+          this.quotesService.fetchAllQuotes(this.currentUser.uid);
+          this.quotes = this.quotesService.getAllQuotes();
           this.router.navigate(['']);
 
         } else {

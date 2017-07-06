@@ -7,9 +7,6 @@ import {FirebaseListObservable} from "angularfire2/database";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
-  @Input() quotes: FirebaseListObservable<any[]>;
-
   constructor() { }
 
   ngOnInit() {

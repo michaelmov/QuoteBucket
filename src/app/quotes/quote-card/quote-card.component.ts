@@ -1,16 +1,18 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {QuotesService} from '../../core/services/quotes.service';
 
 @Component({
   selector: 'app-quote-card',
   templateUrl: './quote-card.component.html',
   styleUrls: ['./quote-card.component.scss']
 })
-export class QuoteCardComponent implements OnInit {
+export class QuoteCardComponent {
   @Input() quote;
 
-  constructor() { }
+  constructor(private quotesService: QuotesService) { }
 
-  ngOnInit() {
+  deleteQuote(event, key) {
+    event.preventDefault();
+    this.quotesService.deleteQuote(key);
   }
-
 }

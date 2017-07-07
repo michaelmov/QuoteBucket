@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import { Promise } from 'firebase';
+import * as firebase from 'firebase';
 import {Quote} from '../models/quote';
 
 @Injectable()
@@ -18,11 +18,11 @@ export class QuotesService {
     return this.quotes;
   }
 
-  addNewQuote(quote: Quote): Promise<void> {
+  addNewQuote(quote: Quote): firebase.Promise<void> {
     return this.quotes.push(quote);
   }
 
-  deleteQuote(quoteId): Promise<void> {
+  deleteQuote(quoteId): firebase.Promise<void> {
     return this.quotes.remove(quoteId);
   }
 }

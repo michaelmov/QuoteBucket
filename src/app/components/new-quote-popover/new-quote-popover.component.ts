@@ -14,11 +14,11 @@ export class NewQuotePopoverComponent {
   addQuote(event, quote: string, author: string, sourceUrl: string) {
     event.preventDefault();
       this.quotesService.addNewQuote({
-      quote: quote,
-      author: author,
-      sourceUrl: sourceUrl,
-      favorite: false,
-      createdDate: firebase.database.ServerValue.TIMESTAMP
+        quote: quote,
+        author: author,
+        sourceUrl: sourceUrl,
+        favorite: false,
+        createdDate: firebase.database.ServerValue.TIMESTAMP
     }).then(
       () => {
         console.log('Quote added!');

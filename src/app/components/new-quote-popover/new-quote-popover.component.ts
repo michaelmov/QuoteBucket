@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { QuotesService } from '../../core/services/quotes.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-new-quote-popover',
@@ -15,7 +16,12 @@ export class NewQuotePopoverComponent {
       this.quotesService.addNewQuote({
       quote: quote,
       author: author,
-      sourceUrl: sourceUrl
+      sourceUrl: sourceUrl,
+      favorite: false,
+      createdDate: firebase.database.ServerValue.TIMESTAMP
+    }).then(
+      () => {
+        console.log('Quote added!');
     })
   }
 }

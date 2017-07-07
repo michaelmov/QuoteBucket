@@ -13,6 +13,10 @@ export class QuoteCardComponent {
 
   deleteQuote(event, key) {
     event.preventDefault();
-    this.quotesService.deleteQuote(key);
+    this.quotesService.deleteQuote(key).then(
+      () => {
+        console.log('Quote deleted');
+      }
+    );
   }
 }
